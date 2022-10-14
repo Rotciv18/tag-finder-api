@@ -1,9 +1,8 @@
-import express from 'express';
+import app from './app';
 
-import UsersController from '@controllers/UsersController';
-
-const app = express();
-
-app.get('/', (req, res) => res.json({ message: UsersController }));
-
-app.listen(3333);
+try {
+  app.listen(3333);
+  console.log(`App is listening to port 3333 on ${process.env.NODE_ENV}`);
+} catch (error) {
+  console.log(error);
+}
