@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 
 import routes from './routes';
 import 'dotenv/config';
+import './database';
 
 class App {
   public server: Express;
