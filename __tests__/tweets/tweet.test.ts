@@ -3,9 +3,10 @@ import { DataSource } from 'typeorm';
 
 import { Tweet } from '../../src/app/models/Tweet';
 import { User } from '../../src/app/models/User';
-import CreateTweetService from '../../src/app/services/Tweet/CreateTweetService';
+import CreateTweetService from '../../src/app/services/Tweets/CreateTweetService';
 import dataSourceOptions from '../../src/config/database';
 import userMock from '../user/userMock';
+import truncate from '../util/truncate';
 import tweetMock from './tweetMock';
 
 describe('Tweet', () => {
@@ -13,6 +14,8 @@ describe('Tweet', () => {
     const AppDataSource = new DataSource(dataSourceOptions);
 
     await AppDataSource.initialize();
+
+    await truncate();
 
     const user = new User();
     Object.assign(user, userMock);

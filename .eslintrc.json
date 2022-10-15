@@ -73,7 +73,10 @@
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
-    ]
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "camelcase": "off"
   },
   "settings": {
     "import/resolver": {

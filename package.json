@@ -6,7 +6,7 @@
    "license": "MIT",
    "scripts": {
       "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
-      "test": "jest",
+      "test": "jest -w 1",
       "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
       "typeorm": "typeorm-ts-node-commonjs"
    },

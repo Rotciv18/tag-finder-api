@@ -1,7 +1,4 @@
-/* eslint-disable import/first */
-// eslint-disable-next-line import/newline-after-import
 import 'dotenv/config';
-// process.env.NODE_ENV = 'dev';
 
 import { DataSource } from 'typeorm';
 
@@ -33,11 +30,5 @@ describe('User', () => {
     const anotherUser = await CreateUserService.call(userMock);
 
     expect(anotherUser).toEqual(null);
-  });
-
-  afterAll(async () => {
-    const AppDataSource = new DataSource(dataSourceOptions);
-    await AppDataSource.initialize();
-    await AppDataSource.dropDatabase();
   });
 });
