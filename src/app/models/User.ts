@@ -1,6 +1,8 @@
 import {
-  Entity, Column, BaseEntity, PrimaryColumn,
+  Entity, Column, BaseEntity, PrimaryColumn, OneToMany, CreateDateColumn, UpdateDateColumn,
 } from 'typeorm';
+
+import { Tweet } from './Tweet';
 
 @Entity()
 export class User extends BaseEntity {
@@ -15,4 +17,13 @@ export class User extends BaseEntity {
 
   @Column()
     image: string;
+
+  @CreateDateColumn()
+    created_at: Date;
+
+  @UpdateDateColumn()
+    updated_at: Date;
+
+  @OneToMany(() => Tweet, (tweet) => tweet.user)
+    tweets: Tweet[];
 }

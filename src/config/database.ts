@@ -1,10 +1,12 @@
 import { DataSourceOptions } from 'typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
+import { Tweet } from '@models/Tweet';
 import { User } from '@models/User';
 
 // eslint-disable-next-line import/no-mutable-exports
 let config;
-const entities = [User];
+const entities = [User, Tweet];
 if (process.env.NODE_ENV === 'test') {
   config = {
     type: 'sqlite',
@@ -18,6 +20,7 @@ if (process.env.NODE_ENV === 'test') {
     entities,
     migrations: [],
     subscribers: [],
+    namingStrategy: new SnakeNamingStrategy(),
   };
 } else {
   config = {
@@ -32,6 +35,7 @@ if (process.env.NODE_ENV === 'test') {
     entities,
     migrations: [],
     subscribers: [],
+    namingStrategy: new SnakeNamingStrategy(),
   };
 }
 
