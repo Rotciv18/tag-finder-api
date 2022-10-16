@@ -2,7 +2,7 @@ import { Tweet } from '@models/Tweet';
 import { User } from '@models/User';
 
 interface ITweet {
-  id: number,
+  id: string,
   message: string
 }
 

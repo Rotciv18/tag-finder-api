@@ -5,6 +5,7 @@ import { DataSource } from 'typeorm';
 import { User } from '../../src/app/models/User';
 import CreateUserService from '../../src/app/services/Users/CreateUserService';
 import dataSourceOptions from '../../src/config/database';
+import truncate from '../util/truncate';
 import userMock from './userMock';
 
 describe('User', () => {
@@ -12,6 +13,7 @@ describe('User', () => {
     const AppDataSource = new DataSource(dataSourceOptions);
 
     await AppDataSource.initialize();
+    await truncate();
   });
 
   beforeEach(async () => {

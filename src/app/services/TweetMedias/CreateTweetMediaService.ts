@@ -2,7 +2,7 @@ import { Tweet } from '@models/Tweet';
 import { TweetMedia } from '@models/TweetMedia';
 
 interface ITweetMedia {
-  id: number,
+  id: string,
   type: string,
   url: string
 }

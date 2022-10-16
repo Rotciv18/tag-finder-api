@@ -1,4 +1,4 @@
 export default {
-  id: 123456,
+  id: '123456',
   message: 'eae porra',
 };

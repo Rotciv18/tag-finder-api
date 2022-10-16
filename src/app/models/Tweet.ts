@@ -14,11 +14,14 @@ import { User } from './User';
 
 @Entity()
 export class Tweet extends BaseEntity {
-  @PrimaryColumn({ type: 'bigint' })
-    id: number;
+  @PrimaryColumn()
+    id: string;
 
   @Column()
     message: string;
+
+  @Column({ default: false })
+    seen: boolean;
 
   @CreateDateColumn()
     created_at: Date;

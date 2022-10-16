@@ -6,8 +6,8 @@ import { Tweet } from './Tweet';
 
 @Entity()
 export class TweetMedia extends BaseEntity {
-  @PrimaryColumn({ type: 'bigint' })
-    id: number;
+  @PrimaryColumn()
+    id: string;
 
   @Column()
     type: string;
