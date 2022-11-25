@@ -15,6 +15,9 @@ export class TweetMedia extends BaseEntity {
   @Column()
     url: string;
 
+  @Column({ nullable: true })
+    content_type: string;
+
   @CreateDateColumn()
     created_at: Date;
 

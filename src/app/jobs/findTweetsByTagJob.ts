@@ -1,4 +1,4 @@
-import { Job } from 'bull';
+import { DoneCallback, Job } from 'bull';
 import FindTweetsByTagQueue from 'src/queues/FindTweetsByTagQueue';
 
 import CreateUserTweetService from '@services/Users/Tweet/CreateUserTweetService';
@@ -11,7 +11,7 @@ interface IJob extends Job {
   }
 }
 
-export default async (job: IJob): Promise<void> => {
+export default async (job: IJob, done: DoneCallback): Promise<void> => {
   const { tag } = job.data;
 
   console.log('Executando agora');
@@ -21,4 +21,5 @@ export default async (job: IJob): Promise<void> => {
   await CreateUserTweetService.call(tweets);
 
   await FindTweetsByTagQueue.add({ tag }, { delay: 300000 });
+  done();
 };

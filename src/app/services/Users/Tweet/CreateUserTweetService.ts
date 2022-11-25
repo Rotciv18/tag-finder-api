@@ -46,7 +46,8 @@ class CreateUserTweetService {
           const newTweetMedia = {
             id: tweetMedia.media_key,
             type: tweetMedia.type,
-            url: tweetMedia.url,
+            url: tweetMedia.type === 'video' && tweetMedia.variants ? tweetMedia.variants[0].url : tweetMedia.url,
+            content_type: tweetMedia.variants ? tweetMedia.variants[0].content_type : null,
           };
 
           await CreateTweetMediaService.call(newTweetMedia, userTweet);

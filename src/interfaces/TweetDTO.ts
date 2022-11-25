@@ -14,7 +14,12 @@ interface ITweetDTO {
     media?: {
       media_key: string,
       url: string,
-      type: string
+      type: string,
+      variants?: {
+        bit_rate: number,
+        content_type: string,
+        url: string
+      }[],
     }[],
     users: {
       username: string,
