@@ -9,7 +9,10 @@ import CreateUserService from '../CreateUserService';
 
 class CreateUserTweetService {
   async call(tweetData: ITweetDTO) {
-    const { media, users } = tweetData.includes;
+    if (tweetData.meta.result_count === 0) {
+      return;
+    }
+    const { media, users } = undefined || tweetData.includes;
     if (!users) return;
 
     /* Criando primeiro todos os usuários para não haver conflito

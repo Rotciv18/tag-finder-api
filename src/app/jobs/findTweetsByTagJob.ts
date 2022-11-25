@@ -20,7 +20,7 @@ export default async (job: IJob, done: DoneCallback): Promise<void> => {
   if (!tweets) return;
   await CreateUserTweetService.call(tweets);
 
-  await FindTweetsByTagQueue.add({ tag }, { delay: 300000 });
+  await FindTweetsByTagQueue.add({ tag }, { delay: 10000 });
   console.log('Finalizando');
   done();
 };

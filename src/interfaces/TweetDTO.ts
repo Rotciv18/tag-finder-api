@@ -1,4 +1,7 @@
 interface ITweetDTO {
+  meta: {
+    result_count: number
+  },
   data: {
     id: string,
     text: string,
